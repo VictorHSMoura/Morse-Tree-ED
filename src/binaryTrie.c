@@ -3,21 +3,19 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-//not working yet. Didn't start to work on that properly
+
 pointer searchR(pointer t, char *key, int p) {
     if (t == NULL) return NULL;     //node not found
-    if (t->left == NULL && t->right == NULL) {
-        char cellkey[5];
-        strcpy(cellkey, t->data.key);
-        if (cellkey == key)
-            return t;   //node found. Returning its pointer
+    if(strlen(key) == p) {
+        if(strcmp(t->data.key, key) == 0)
+            return t;
         else
-            return NULL;   //node not found
+            return NULL;
     }
     if(key[p] == '.')
-        return searchR(t->left, key, p+1);
+        return searchR(t->left, key, p+1);  //search on left sub-tree
     else
-        return searchR(t->right, key, p+1);
+        return searchR(t->right, key, p+1); //search on right sub-tree
 }
 
 pointer search(pointer t, char *key) {
