@@ -7,7 +7,6 @@
 
 int main(int argc, char const *argv[]) {
     trie newTrie = makeTrie(NULL);
-    pointer newNode;
     cell newCell;
     FILE *morse;
     Queue q;
